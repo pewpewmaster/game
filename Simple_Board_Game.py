@@ -1,7 +1,6 @@
 # Name: Xinyu Zhang
-# Comment:
 
-            
+# Main function           
 def main():
     board = list("012345678")
     player1 = "X"
@@ -36,6 +35,7 @@ def main():
             print("Draw!")
             break
 
+# Make a board
 def print_board(board):
     print("{0}|{1}|{2}".format(board[0],board[1],board[2]))
     print('-+-+-')
@@ -43,6 +43,7 @@ def print_board(board):
     print('-+-+-')
     print("{0}|{1}|{2}".format(board[6],board[7],board[8]))
 
+# Define legal moves
 def moves(board):
     moves = []
     for i in range(9):
@@ -50,6 +51,7 @@ def moves(board):
             moves.append(i)
     return moves
 
+# User input moves
 def player_1(board):
     move = 9
     while move not in moves(board):
@@ -62,6 +64,7 @@ def player_2(board):
         move = int(input("Enter your move player 02 (O): "))
     return move
 
+# 8 different ways to win
 def win(board):
     set_win = {(0,1,2),(3,4,5),(6,7,8),(0,3,6),(1,4,7),(2,5,8),(0,4,8),(2,4,6)}
     for i in set_win:
@@ -69,6 +72,7 @@ def win(board):
             return True
     return False
 
+# If the board is filled, then draw
 def draw(board):
     for i in list("012345678"):
         if i in board:
